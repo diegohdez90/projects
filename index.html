@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="customersCtrl" class="container"> 
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Projects</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="new_project.php">Insertar Proyectos</a></li>
+          <li><a href="new_user.html">Insertar Nuevo Usuario</a></li>
+          <li><a href="list-projects.php">Detalles de Todos los proyectos</a></li> 
+          <li><a href="finished.html">Proyectos terminados</a></li> 
+        </ul>
+      </div>
+    </nav>
+    <div class="jumbotron">
+        <table class="table">
+          <thead>
+            <th>Nombre del proyecto</th>
+            <th>Responsable</th>
+            <th>Dias</th>
+            <th>Dia de termino</th>
+            <th>Costo</th>
+          </thead>
+          <tbody>
+              <tr ng-repeat="x in projects">
+                <td>{{ x.name_project }}</td>
+                <td>{{ x.name }}</td>
+                <td>{{ x.days }}</td>
+                <td>{{ x.enddate }}</td>
+                <td>${{ x.cost }}</td>
+              </tr>
+          </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.get("projects.php")
+    .then(function (response) {$scope.projects = response.data.results;});
+});
+</script>
+
+</body>
+</html>

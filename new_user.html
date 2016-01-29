@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8 "/>
+    <title>Crear usuario</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    
+
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Projects</a>
+          </div>
+          <ul class="nav navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="new_project.php">Nuevo Proyectos</a></li>
+          <li class="active"><a href="new_user.html">Nuevo Usuario</a></li>
+          <li><a href="list-projects.php">Detalles de los Proyectos</a></li> 
+          <li><a href="finished.html">Proyectos terminados</a></li> 
+          </ul>
+        </div>
+      </nav>
+      <div class="jumbotron">
+        <div class="row" id="register" ng-app="userApp" ng-controller="userCtrl" ng-submit="pushData(frm)">
+          <form role="form" class="form-horizontal">
+            <div class="form-group"><label>Nombre</label><input class="form-control" type="text" ng-model="frm.name"></div>
+            <div class="form-group"><label>Apellidos</label><input class="form-control" type="text" ng-model="frm.lastname"></div>
+            <div class="form-group"><label>Departamento</label><input class="form-control" type="text" ng-model="frm.department"></div>
+            <input class="btn btn-default" type="submit" value="Registrar">
+          </form>
+        </div>
+      </div>
+    </div>
+    
+
+    <script type="text/javascript">
+
+    angular.module('userApp',[])
+
+    .controller('userCtrl', ['$scope', '$http', '$log', '$location', '$window', function($scope, $http, $log, $location, $window) {
+
+      $scope.pushData = function($params) {
+        $http.post('register-user.php',{'name':$params.name, 'lastname':$params.lastname, 'department':$params.department})
+          .success(function(data) {
+            $window.location.href = "index.html";
+          })
+          .error(function(err) {
+            $log.error(err);
+          })
+      }
+
+    }])
+
+    </script>
+  </body>
+
+</html>

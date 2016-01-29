@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="projectsCtrl" class="container"> 
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Proyectos Terminados</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="new_project.php">Insertar Proyectos</a></li>
+          <li><a href="new_user.html">Insertar Nuevo Usuario</a></li>
+          <li><a href="list-projects.php">Detalles de Todos los proyectos</a></li> 
+          <li class="active"><a href="finished.html">Proyectos terminados</a></li> 
+        </ul>
+      </div>
+    </nav>
+    <div class="jumbotron">
+        <table class="table">
+          <thead>
+            <th>Nombre del proyecto</th>
+            <th>Lider</th>
+            <th>Dias</th>
+            <th>Dia de inicio</th>
+            <th>Dia de termino</th>
+            <th>Costo</th>
+          </thead>
+          <tbody>
+              <tr ng-repeat="x in projects">
+                <td>{{ x.name_project }}</td>
+                <td>{{ x.leader }}</td>
+                <td>{{ x.days }}</td>
+                <td>{{ x.startdate }}</td>
+                <td>{{ x.enddate }}</td>
+                <td>${{ x.cost  }}</td>
+              </tr>
+              <tr>
+                <td colspan="5"><p class="text-right">Presupuesto total de Proyectos Terminados</p></td>
+                <td>${{getTotal()}}</td>
+              </tr>
+          </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('projectsCtrl', function($scope, $http) {
+    $http.get("finished-projects.php")
+    .then(function (response) {$scope.projects = response.data.results;});
+    $scope.getTotal = function(){
+        var total = 0;
+        for(var i = 0; i < $scope.projects.length; i++){
+            var product = $scope.projects[i];
+            total += parseFloat(product.cost);
+        }
+        return total;
+    }
+});
+
+</script>
+
+</body>
+</html>
