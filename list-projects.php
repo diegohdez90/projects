@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-
+<title>Proyectos</title>
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -14,14 +14,16 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Projects</a>
+          <a class="navbar-brand" href="#">Proyectos</a>
         </div>
         <ul class="nav navbar-nav">
           <li><a href="index.html">Inicio</a></li>
           <li><a href="new_project.php">Nuevo Proyecto</a></li>
-          <li><a href="new_user.html">Insertar Nuevo Usuario</a></li>
+          <li><a href="new_user.html">Nuevo Usuario</a></li>
           <li class="active"><a href="list-projects.php">Proyectos</a></li> 
           <li><a href="finished.html">Proyectos Terminados</a></li> 
+          <li><a href="in-process.html">Proyectos En Proceso</a></li>
+          <li><a href="abandoned.html">Proyectos Abandonados</a></li>
         </ul>
       </div>
     </nav>
@@ -79,14 +81,9 @@
                 echo $rs['status'];
                 echo "</td>";
                 echo "<td>";
-                ?>
-                
-                <?php
                 echo "<a href='edit.php?id=".$rs['id']."'>";
                 echo "<i class='material-icons'>mode_edit</i></a>";
-                ?>
-                <a href='delete.php?id=<? echo $rs["id"];?>'>
-                <?php
+                echo "<a href='delete.php?id=".$rs['id']."'>";
                 echo "<i class='material-icons'>delete</i></a>";
                 echo "</td>";
                 echo "</tr>";

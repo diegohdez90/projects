@@ -16,7 +16,7 @@
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Projects</a>
+            <a class="navbar-brand" href="#">Proyectos</a>
           </div>
           <ul class="nav navbar-nav">
           <li><a href="index.html">Inicio</a></li>
@@ -24,10 +24,13 @@
           <li class="active"><a href="new_user.html">Nuevo Usuario</a></li>
           <li><a href="list-projects.php">Proyectos</a></li> 
           <li><a href="finished.html">Proyectos Terminados</a></li> 
+          <li><a href="in-process.html">Proyectos En Proceso</a></li>
+          <li><a href="abandoned.html">Proyectos Abandonados</a></li>
           </ul>
         </div>
       </nav>
       <div class="jumbotron">
+        <h2>Registro de Usuario</h2>
         <div class="row" id="register" ng-app="userApp" ng-controller="userCtrl" ng-submit="pushData(frm)">
           <form role="form" class="form-horizontal">
             <div class="form-group"><label>Nombre</label><input class="form-control" type="text" ng-model="frm.name"></div>
