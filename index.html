@@ -53,8 +53,9 @@
 
 </div>
 <footer class="container-fluid text-center">
-  <p>Veotek 2016</p>
+  <p>Veotek<i class="material-icons">copyright</i> <span id="theYear"></span></p>
 </footer>
+
 <script>
 var app = angular.module('myApp', []);
 app.controller('customersCtrl', function($scope, $http) {
@@ -62,6 +63,10 @@ app.controller('customersCtrl', function($scope, $http) {
     .then(function (response) {$scope.projects = response.data.results;});
 });
 </script>
-
+<script type="text/javascript">
+    var d = new Date();
+    var n = d.getFullYear();
+    document.getElementById("theYear").innerHTML = n;
+</script>
 </body>
 </html>

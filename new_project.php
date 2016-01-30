@@ -60,7 +60,11 @@
     </div>
   </div>
   <footer class="container-fluid text-center">
-    <p>Veotek 2016</p>
+    <p>Veotek<i class="material-icons">copyright</i> <span id="theYear"></span></p>
   </footer>
-
+  <script type="text/javascript">
+      var d = new Date();
+      var n = d.getFullYear();
+      document.getElementById("theYear").innerHTML = n;
+  </script>
 </body>

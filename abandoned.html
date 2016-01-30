@@ -7,7 +7,7 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" type="text/css" href="css/main.css">
-<body>
+<body init="">
 
 <div ng-app="myApp" ng-controller="projectsCtrl" class="container"> 
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -57,7 +57,7 @@
     </div>
 </div>
 <footer class="container-fluid text-center">
-  <p>Veotek 2016</p>
+  <p>Veotek<i class="material-icons">copyright</i> <span id="theYear"></span></p>
 </footer>
 
 <script>
@@ -79,6 +79,10 @@ app.controller('projectsCtrl', function($scope, $http) {
 });
 
 </script>
-
+<script type="text/javascript">
+    var d = new Date();
+    var n = d.getFullYear();
+    document.getElementById("theYear").innerHTML = n;
+</script>
 </body>
 </html>
