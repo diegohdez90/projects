@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 include "connection.php";
 
-$result = $my_sql_conn->query("SELECT * FROM the_projects");
+$result = $my_sql_conn->query("SELECT * FROM the_projects ORDER BY end_date");
 
 $outp = "";
 while($rs = $result->fetch_array(MYSQLI_ASSOC)) {

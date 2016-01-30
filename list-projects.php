@@ -6,6 +6,7 @@
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
 <body>
@@ -14,16 +15,19 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Proyectos</a>
+          <a class="navbar-brand" href="index.html">Proyectos</a>
         </div>
         <ul class="nav navbar-nav">
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="new_project.php">Nuevo Proyecto</a></li>
-          <li><a href="new_user.html">Nuevo Usuario</a></li>
-          <li class="active"><a href="list-projects.php">Proyectos</a></li> 
-          <li><a href="finished.html">Proyectos Terminados</a></li> 
-          <li><a href="in-process.html">Proyectos En Proceso</a></li>
-          <li><a href="abandoned.html">Proyectos Abandonados</a></li>
+          <li><a href="index.html"><p class="text-center"><i class="material-icons">home</i></p><p class="text-center">Inicio</p></a></li>
+          <li><a href="new_project.php"><p class="text-center"><i class="material-icons">note_add</i></p><p class="text-center">Nuevo Proyecto</p></a></li>
+          <li><a href="new_user.html"><p class="text-center"><i class="material-icons">person_add</i></p><p class="text-center">Nuevo Usuario</p></a></li>
+          <li class="active"><a href="list-projects.php"><p class="text-center"><i class="material-icons">assignment</i></p><p class="text-center">Proyectos</p> </a></li> 
+          <li><a href="finished.html"><p class="text-center"><i class="material-icons">assignment_turned_in</i></p><p class="text-center">Proyectos Terminados</p></a></li>
+          <li><a href="in-process.html"><p class="text-center"><i class="material-icons">assignment_ind</i></p><p class="text-center">Proyectos En Proceso</p></a></li>
+          <li><a href="abandoned.html"><p class="text-center"><i class="material-icons">close</i></p><p class="text-center">Proyectos Abandonados</p></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right veoteimg">
+          <li><a href="index.html"><span><img src="img/veotek.png" width="140"></span></a></li>
         </ul>
       </div>
     </nav>
@@ -33,7 +37,7 @@
       <?php
         include "connection.php";
 
-        $result = $my_sql_conn->query("select * from project");
+        $result = $my_sql_conn->query("select * from project order by start_date");
 
       ?>
       <table class="table table-stripped">
@@ -46,7 +50,7 @@
             <th>Dias</th>
             <th>Presupuesto</th>
             <th>Status</th>
-            <th>Accion</th>
+            <th>Editar</th>
           </thead>
           <tbody>
             <?php
@@ -83,8 +87,6 @@
                 echo "<td>";
                 echo "<a href='edit.php?id=".$rs['id']."'>";
                 echo "<i class='material-icons'>mode_edit</i></a>";
-                echo "<a href='delete.php?id=".$rs['id']."'>";
-                echo "<i class='material-icons'>delete</i></a>";
                 echo "</td>";
                 echo "</tr>";
               }
@@ -93,10 +95,8 @@
       </table>
     </div>
   </div>
-<?php
-
-
-
-?>
+  <footer class="container-fluid text-center">
+    <p>Veotek 2016</p>
+  </footer>
 
 </body>
