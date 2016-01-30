@@ -17,11 +17,11 @@
           <a class="navbar-brand" href="#">Projects</a>
         </div>
         <ul class="nav navbar-nav">
-          <li><a href="index.html">Home</a></li>
-          <li class="active"><a href="new_project.php">Insertar Proyectos</a></li>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="new_project.php">Nuevo Proyecto</a></li>
           <li><a href="new_user.html">Insertar Nuevo Usuario</a></li>
-          <li><a href="list-projects.php">Detalles de Todos los proyectos</a></li> 
-          <li><a href="finished.html">Proyectos terminados</a></li> 
+          <li class="active"><a href="list-projects.php">Proyectos</a></li> 
+          <li><a href="finished.html">Proyectos Terminados</a></li> 
         </ul>
       </div>
     </nav>

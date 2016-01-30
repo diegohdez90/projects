@@ -16,19 +16,19 @@
           <a class="navbar-brand" href="#">Projects</a>
         </div>
         <ul class="nav navbar-nav">
-          <li><a href="index.html">Home</a></li>
-          <li class="active"><a href="new_project.php">Insertar Proyectos</a></li>
-          <li><a href="new_user.html">Insertar Nuevo Usuario</a></li>
-          <li><a href="list-projects.php">Detalles de Todos los proyectos</a></li> 
-          <li><a href="finished.html">Proyectos terminados</a></li> 
+          <li><a href="index.html">Inicio</a></li>
+          <li class="active"><a href="new_project.php">Nuevo Proyectos</a></li>
+          <li><a href="new_user.html">Nuevo Usuario</a></li>
+          <li><a href="list-projects.php">Proyectos</a></li> 
+          <li><a href="finished.html">Proyectos Terminados</a></li> 
         </ul>
       </div>
     </nav>
     <div class="jumbotron">
       <h2>Register</h2>
       <form role="form" action="register-project.php" method="post" enctype="multipart/form-data">
-        <div class="form-group"><label>Optica</label><input class="form-control" type="text" name="project" placeholder="Nombre del Proyecto"></div>
-        <div class="form-group"><label>Responsable</label>
+        <div class="form-group"><label>Nombre del Proyecto</label><input class="form-control" type="text" name="project" placeholder="Nombre del Proyecto"></div>
+        <div class="form-group"><label>Lider de Proyecto</label>
             <?php
               include "connection.php";
 
@@ -44,7 +44,7 @@
                     }
                   $my_sql_conn->close();
           ?></select>
-
+        </div>
           <div class="form-group"><label>Presupuesto</label><input class="form-control" type="text" placeholder="Presupuesto" name="cost"></div>
           <div class="form-group"><label>Fecha de inicio</label><input class="form-control" type="date" name="startdate"></div>
           <div class="form-group"><label>Fecha de fin</label><input class="form-control" type="date" name="enddate"></div>
