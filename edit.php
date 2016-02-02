@@ -171,9 +171,9 @@
 					echo "</select>";
 	              ?>
 	          </div>
-              <div class="form-actions">
-                  <button type="submit" class="btn btn-success">Update</button>
-                  <a class="btn" href="list-projects.php">Back</a>
+              <div class="control-group">
+                    <input type="submit" class="btn btn-default" value="Actualizar">
+                          <a class="btn btn-default" href="list-projects.php">Back</a>
                 </div>
             </form>
         </div>

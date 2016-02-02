@@ -12,38 +12,40 @@
   </head>
 
   <body>
-    <div class="container">
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myMenu">
+            </button>
             <a class="navbar-brand" href="index.html">Proyectos</a>
           </div>
-          <ul class="nav navbar-nav">
-            <li><a href="index.html"><p class="text-center"><i class="material-icons">home</i></p><p class="text-center">Inicio</p></a></li>
-            <li><a href="new_project.php"><p class="text-center"><i class="material-icons">note_add</i></p><p class="text-center">Nuevo Proyecto</p></a></li>
-            <li class="active"><a href="new_user.html"><p class="text-center"><i class="material-icons">person_add</i></p><p class="text-center">Nuevo Usuario</p></a></li>
-            <li><a href="list-projects.php"><p class="text-center"><i class="material-icons">assignment</i></p><p class="text-center">Proyectos</p> </a></li> 
-            <li><a href="finished.html"><p class="text-center"><i class="material-icons">assignment_turned_in</i></p><p class="text-center">Proyectos Terminados</p></a></li>
-            <li><a href="in-process.html"><p class="text-center"><i class="material-icons">assignment_ind</i></p><p class="text-center">Proyectos En Proceso</p></a></li>
-            <li><a href="abandoned.html"><p class="text-center"><i class="material-icons">close</i></p><p class="text-center">Proyectos Abandonados</p></a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right veoteimg">
-            <li><a href="index.html"><span><img src="img/veotek.png" width="140"></span></a></li>
-          </ul>
+          <div class="collapse navbar-collapse" id="myMenu">
+            <ul class="nav navbar-nav">
+              <li><a href="index.html"><p class="text-center"><i class="material-icons">home</i></p><p class="text-center">Inicio</p></a></li>
+              <li><a href="new_project.php"><p class="text-center"><i class="material-icons">note_add</i></p><p class="text-center">Nuevo<br>Proyecto</p></a></li>
+              <li class="active"><a href="new_user.html"><p class="text-center"><i class="material-icons">person_add</i></p><p class="text-center">Nuevo<br>Usuario</p></a></li>
+              <li><a href="list-projects.php"><p class="text-center"><i class="material-icons">assignment</i></p><p class="text-center">Proyectos</p> </a></li> 
+              <li><a href="finished.html"><p class="text-center"><i class="material-icons">assignment_turned_in</i></p><p class="text-center">Proyectos<br>Terminados</p></a></li>
+              <li><a href="in-process.html"><p class="text-center"><i class="material-icons">assignment_ind</i></p><p class="text-center">Proyectos<br>En Proceso</p></a></li>
+              <li><a href="abandoned.html"><p class="text-center"><i class="material-icons">close</i></p><p class="text-center">Proyectos<br>Abandonados</p></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right veoteimg">
+              <li><a href="index.html"><span><img src="img/veotek.png" width="140"></span></a></li>
+            </ul>
+          </div>
         </div>
       </nav>
       <div class="jumbotron">
-        <h2>Registro de Usuario</h2>
-        <div class="row" id="register" ng-app="userApp" ng-controller="userCtrl" ng-submit="pushData(frm)">
-          <form role="form" class="form-horizontal">
-            <div class="form-group"><label>Nombre</label><input class="form-control" type="text" ng-model="frm.name"></div>
-            <div class="form-group"><label>Apellidos</label><input class="form-control" type="text" ng-model="frm.lastname"></div>
-            <div class="form-group"><label>Departamento</label><input class="form-control" type="text" ng-model="frm.department"></div>
-            <input class="btn btn-default" type="submit" value="Registrar">
-          </form>
+        <div class="container" id="register" ng-app="userApp" ng-controller="userCtrl" ng-submit="pushData(frm)">
+          <h2>Registro de Usuario</h2>
+            <form role="form" class="form-horizontal">
+              <div class="form-group"><label>Nombre</label><input class="form-control" type="text" ng-model="frm.name"></div>
+              <div class="form-group"><label>Apellidos</label><input class="form-control" type="text" ng-model="frm.lastname"></div>
+              <div class="form-group"><label>Departamento</label><input class="form-control" type="text" ng-model="frm.department"></div>
+              <input class="btn btn-default" type="submit" value="Registrar">
+            </form>
         </div>
       </div>
-    </div>
     
 
     <script type="text/javascript">
@@ -65,7 +67,6 @@
     }])
 
     </script>
-  </body>
   <footer class="container-fluid text-center">
     <p>Veotek<i class="material-icons">copyright</i> <span id="theYear"></span></p>
   </footer>
