@@ -76,7 +76,6 @@
 <html>
 <head>
 <title>Editar Proyecto</title>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -84,27 +83,31 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-	<div class="container">
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-          <div class="container-fluid">
-            <div class="navbar-header">
-            <a class="navbar-brand" href="index.html">Proyectos</a>
-            </div>
-            <ul class="nav navbar-nav">
-              <li><a href="index.html"><p class="text-center"><i class="material-icons">home</i></p><p class="text-center">Inicio</p></a></li>
-              <li><a href="new_project.php"><p class="text-center"><i class="material-icons">note_add</i></p><p class="text-center">Nuevo Proyecto</p></a></li>
-              <li><a href="new_user.html"><p class="text-center"><i class="material-icons">person_add</i></p><p class="text-center">Nuevo Usuario</p></a></li>
-              <li class="active"><a href="list-projects.php"><p class="text-center"><i class="material-icons">assignment</i></p><p class="text-center">Proyectos</p> </a></li> 
-              <li><a href="finished.html"><p class="text-center"><i class="material-icons">assignment_turned_in</i></p><p class="text-center">Proyectos Terminados</p></a></li>
-              <li><a href="in-process.html"><p class="text-center"><i class="material-icons">assignment_ind</i></p><p class="text-center">Proyectos En Proceso</p></a></li>
-              <li><a href="abandoned.html"><p class="text-center"><i class="material-icons">close</i></p><p class="text-center">Proyectos Abandonados</p></a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right veoteimg">
-              <li><a href="index.html"><span><img src="img/veotek.png" width="140"></span></a></li>
-            </ul>
-          </div>
-        </nav>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myMenu">
+          </button>
+          <a class="navbar-brand" href="index.html">Proyectos</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myMenu">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html"><p class="text-center"><i class="material-icons">home</i></p><p class="text-center">Inicio</p></a></li>
+            <li><a href="new_project.php"><p class="text-center"><i class="material-icons">note_add</i></p><p class="text-center">Nuevo<br>Proyecto</p></a></li>
+            <li><a href="new_user.html"><p class="text-center"><i class="material-icons">person_add</i></p><p class="text-center">Nuevo<br>Usuario</p></a></li>
+            <li class="active"><a href="list-projects.php"><p class="text-center"><i class="material-icons">assignment</i></p><p class="text-center">Proyectos</p> </a></li> 
+            <li><a href="finished.html"><p class="text-center"><i class="material-icons">assignment_turned_in</i></p><p class="text-center">Proyectos<br>Terminados</p></a></li>
+            <li><a href="in-process.html"><p class="text-center"><i class="material-icons">assignment_ind</i></p><p class="text-center">Proyectos<br>En Proceso</p></a></li>
+            <li><a href="abandoned.html"><p class="text-center"><i class="material-icons">close</i></p><p class="text-center">Proyectos<br>Abandonados</p></a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right veoteimg">
+            <li><a href="index.html"><span><img src="img/veotek.png" width="140"></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
         <div class="jumbotron">
+          <div class="container">
             <div class="row">
                 <h3>Actualizar Proyecto</h3>
             </div>
@@ -173,12 +176,12 @@
 	          </div>
               <div class="control-group">
                     <input type="submit" class="btn btn-default" value="Actualizar">
-                          <a class="btn btn-default" href="list-projects.php">Back</a>
-                </div>
+                    <a class="btn btn-default" href="list-projects.php">Back</a>
+              </div>
             </form>
         </div>
+      </div>
                  
-    </div>
     <footer class="container-fluid text-center">
       <p>Veotek<i class="material-icons">copyright</i> <span id="theYear"></span></p>
     </footer>

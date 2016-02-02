@@ -58,7 +58,7 @@
                 <th>Dias</th>
                 <th>Presupuesto</th>
                 <th>Status</th>
-                <th>Editar</th>
+                <th>Acciones</th>
               </thead>
               <tbody>
                 <?php
@@ -95,6 +95,12 @@
                     echo "<td>";
                     echo "<a style=\"color:white\" href='edit.php?id=".$rs['id']."'>";
                     echo "<i class='material-icons'>mode_edit</i></a>";
+                    echo "<a style=\"color:white\" href='activities.php?id=".$rs['id']."'>";
+                    echo "<i class='material-icons'>description</i></a>";
+                    echo "<a style=\"color:white\" href='addactivity.php?id=".$rs['id']."'>";
+                    echo "<i class='material-icons'>add</i></a>";
+                    echo "<a style=\"color:white\" href='process.php?id=".$rs['id']."'>";
+                    echo "<i class='material-icons'>assessment</i></a>";
                     echo "</td>";
                     echo "</tr>";
                   }
