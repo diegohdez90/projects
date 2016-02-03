@@ -93,17 +93,19 @@
                     echo $rs['status'];
                     echo "</td>";
                     echo "<td>";
-                    echo "<a style=\"color:white\" href='edit.php?id=".$rs['id']."'>";
-                    echo "<i class='material-icons'>mode_edit</i></a>";
-                    echo "<a style=\"color:white\" href='activities.php?id=".$rs['id']."'>";
-                    echo "<i class='material-icons'>description</i></a>";
-                    echo "<a style=\"color:white\" href='addactivity.php?id=".$rs['id']."'>";
-                    echo "<i class='material-icons'>add</i></a>";
-                    echo "<a style=\"color:white\" href='process.php?id=".$rs['id']."'>";
-                    echo "<i class='material-icons'>assessment</i></a>";
-                    echo "<a style=\"color:white\" href='done.php?id=".$rs['id']."'>";
-                    echo "<i class='material-icons'>done_all</i></a>";
-                    echo "</td>";
+                    if ($rs['status']=='En Proceso') {
+                      echo "<a style=\"color:white\" href='edit.php?id=".$rs['id']."'>";
+                      echo "<i class='material-icons'>mode_edit</i></a>";
+                      echo "<a style=\"color:white\" href='activities.php?id=".$rs['id']."'>";
+                      echo "<i class='material-icons'>description</i></a>";
+                      echo "<a style=\"color:white\" href='addactivity.php?id=".$rs['id']."'>";
+                      echo "<i class='material-icons'>add</i></a>";
+                      echo "<a style=\"color:white\" href='process.php?id=".$rs['id']."'>";
+                      echo "<i class='material-icons'>assessment</i></a>";
+                      echo "<a style=\"color:white\" href='done.php?id=".$rs['id']."'>";
+                      echo "<i class='material-icons'>done_all</i></a>";
+                      echo "</td>";
+                    }
                     echo "</tr>";
                   }
                 ?>

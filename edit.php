@@ -47,7 +47,7 @@
         $startProject = new DateTime($start);
 		$endProject = new DateTime($end);
         $diff = $endProject->diff($startProject)->format("%a");
-
+        //round(($endProject->format('U') - $startProject->format('U')) / (60*60*24));
 
 
             $result = $my_sql_conn->query("UPDATE project  set name = '$name', start_date = '$start', end_date ='$end', leader_id1='$responsable',cost='$cost',status='$status',days='$diff' WHERE id ='$id'");
