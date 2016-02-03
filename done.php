@@ -20,7 +20,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Editar Proyecto</title>
+<title>Terminar Proyecto</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -64,7 +64,7 @@
         <div class="jumbotron">
           <div class="container">
             <div class="row">
-                <h2>Anexar actividad</h2>	
+              <h2>Terminar proyecto</h2>	
             	<div class="panel panel-default">
                 	<div class="panel-body">
                 		<h4 class="panelProject">Proyecto: <small><?php echo $projectname;?></small></h4>
@@ -75,11 +75,10 @@
 
 
 
-        <form role="form" action="register-activity.php" method="post" enctype="multipart/form-data">
-          	<div class="form-group"><label>Actividad</label><input class="form-control" type="text" name="activity" placeholder="Actividad"></div>
+        <form role="form" action="register-finished-project.php" method="post" enctype="multipart/form-data">
+          	<div class="form-group"><label>Conclusiones</label><textarea class="form-control" name="conclusion" rows="5" id="comment"></textarea></div>
           	<div class="form-group"><input class="form-control" type="hidden" name="id" value="<?php echo $id; ?>"></div>
             <div class="form-group"><input class="form-control" type="hidden" name="leaderid" value="<?php echo $leaderid; ?>"></div>
-            <div class="form-group"><label>Presupuesto</label><input class="form-control" type="text" placeholder="Presupuesto" name="cost"></div>
             <div class="form-group"><label>Fecha</label><input class="form-control" type="date" name="date"></div>
           <input class="btn btn-default" type="submit" value="Enviar">
         </form>

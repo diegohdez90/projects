@@ -101,6 +101,8 @@
                     echo "<i class='material-icons'>add</i></a>";
                     echo "<a style=\"color:white\" href='process.php?id=".$rs['id']."'>";
                     echo "<i class='material-icons'>assessment</i></a>";
+                    echo "<a style=\"color:white\" href='done.php?id=".$rs['id']."'>";
+                    echo "<i class='material-icons'>done_all</i></a>";
                     echo "</td>";
                     echo "</tr>";
                   }
