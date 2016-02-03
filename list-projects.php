@@ -106,6 +106,12 @@
                       echo "<i class='material-icons'>done_all</i></a>";
                       echo "</td>";
                     }
+                    else{
+                      echo "<a style=\"color:white\" href='activities.php?id=".$rs['id']."'>";
+                      echo "<i class='material-icons'>description</i></a>";
+                      echo "<a style=\"color:white\" href='process.php?id=".$rs['id']."'>";
+                      echo "<i class='material-icons'>assessment</i></a>";
+                    }
                     echo "</tr>";
                   }
                 ?>
