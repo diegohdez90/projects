@@ -8,17 +8,35 @@
 
     $leaderdate = $my_sql_conn->query("select * from the_projects where id='$id'");
 
-    while($rs = $leaderdate->fetch_array(MYSQLI_ASSOC)){
-    	$projectname = $rs['name_project'];
-	    $leadername = $rs['name'];
-	    $cost = $rs['cost'];
+    if ($leaderdate->num_rows == 0) {
+      $leaderdate = $my_sql_conn->query("SELECT project.id, project.name as name_project,concat(leader.name,' ',leader.lastname) as name,days,end_date,cost from project,leader where project.end_date <=curdate() and project.id='$id'");
+      while($rs = $leaderdate->fetch_array(MYSQLI_ASSOC)){
+        $projectname = $rs['name_project'];
+        $leadername = $rs['name'];
+        $cost = $rs['cost'];
+      }
+
+      $fechas = array();
+      $result = $my_sql_conn->query("select Sum(Presupuesto) as Presupuestos,Fecha from activities where IDProject='$id' group by Fecha");
+
+      while($rs = $result->fetch_array(MYSQLI_ASSOC)){
+        $fechas[$rs['Fecha']] = $rs['Presupuestos']; 
+      }
     }
+    else{
+      while($rs = $leaderdate->fetch_array(MYSQLI_ASSOC)){
+        $projectname = $rs['name_project'];
+        $leadername = $rs['name'];
+        $cost = $rs['cost'];
+      }
 
-    $fechas = array();
-    $result = $my_sql_conn->query("select Sum(Presupuesto) as Presupuestos,Fecha from activities where IDProject='$id' group by Fecha");
+      $fechas = array();
+      $result = $my_sql_conn->query("select Sum(Presupuesto) as Presupuestos,Fecha from activities where IDProject='$id' group by Fecha");
 
-    while($rs = $result->fetch_array(MYSQLI_ASSOC)){
-      $fechas[$rs['Fecha']] = $rs['Presupuestos']; 
+      while($rs = $result->fetch_array(MYSQLI_ASSOC)){
+        $fechas[$rs['Fecha']] = $rs['Presupuestos']; 
+      }
+
     }
 
 
@@ -113,6 +131,8 @@ function drawBackgroundColor() {
       ]);
 
       var options = {
+        title: 'Prespuesto de actividades por dia',
+        height: 400,
         hAxis: {
           title: 'Dia'
         },

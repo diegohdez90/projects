@@ -8,15 +8,29 @@
 
     $leaderdate = $my_sql_conn->query("select * from the_projects where id='$id'");
 
-    while($rs = $leaderdate->fetch_array(MYSQLI_ASSOC)){
-    	$projectname = $rs['name_project'];
-	    $leadername = $rs['name'];
-	    $cost = $rs['cost'];
+
+    if ($leaderdate->num_rows == 0) {
+      $leaderdate = $my_sql_conn->query("SELECT project.id, project.name as name_project,concat(leader.name,' ',leader.lastname) as name,days,end_date,cost from project,leader where project.end_date <=curdate() and project.id='$id'");
+      while($rs = $leaderdate->fetch_array(MYSQLI_ASSOC)){
+        $projectname = $rs['name_project'];
+        $leadername = $rs['name'];
+        $cost = $rs['cost'];
+      }
+
+      $result = $my_sql_conn->query("select Nombre,Descripcion,Presupuesto,Fecha from activities where IDProject='$id'");
     }
+    else{
+
+      while($rs = $leaderdate->fetch_array(MYSQLI_ASSOC)){
+      	$projectname = $rs['name_project'];
+  	    $leadername = $rs['name'];
+  	    $cost = $rs['cost'];
+      }
 
 
-    $result = $my_sql_conn->query("select Nombre,Descripcion,Presupuesto,Fecha from activities where IDProject='$id'");
+      $result = $my_sql_conn->query("select Nombre,Descripcion,Presupuesto,Fecha from activities where IDProject='$id'");
 
+    }
 ?>
 
 <!DOCTYPE html>
